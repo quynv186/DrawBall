@@ -45,15 +45,27 @@ class ViewController: UIViewController {
         let space = (self.view.bounds.size.height - 40 - 2 * margin) / CGFloat(n - 1)
         return space
     }
-
+    
+    func drawOneBall() {
+        let image = UIImage(named: "green")
+        let ball = UIImageView(image: image)
+        
+        ball.center = CGPoint(x: (self.view.bounds.size.width) / 2, y: (self.view.bounds.size.height) / 2)
+        
+        self.view.addSubview(ball)
+    }
+    
     @IBAction func actionDraw(_ sender: AnyObject) {
         if let a = Int(lblNumber.text!) {
             n = a
         }
-        if (n > 1) {
+        if (n == 1) {
+            drawOneBall()
+        } else {
             drawRawOfBall()
         }
     }
+    
 
 }
 
